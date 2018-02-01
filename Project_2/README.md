@@ -4,6 +4,8 @@ Project 2: Walker
 
 By Isaac Collins, James Liao, and Andrew Sack
 
+January 31, 2018
+
 Overview:
 
 The goal of this project was to design a robot walker. Our final design was a walker with 4 legs driven by a single motor, successfully able to navigate forwards and backwards at 3 different speeds.
