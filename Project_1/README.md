@@ -4,7 +4,7 @@ Find The Wall
 
 By: Isaac Collins, James Liao, Andrew Sack
 
-1/24/18
+January 24, 2018
 
 
 Overview:
