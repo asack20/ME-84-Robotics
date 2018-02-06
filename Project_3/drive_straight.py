@@ -1,8 +1,8 @@
-#!/usr/bin/python3
+#!/usr/bin/python3  
 
 # parameters
-Kp = 10; # proportionality constant
-base_speed = 500
+Kp = 15; # proportionality constant
+base_speed = 200
 target_angle = 0
 num_its = 1000 # number of iterations to run code (roughly, how long to run for)
 
@@ -13,7 +13,7 @@ def main():
 	ev3 = Device('this')
 	motorL = ev3.LargeMotor('outD')
 	motorR = ev3.LargeMotor('outA')
-	truck_gyro = ev3.GyroSensor('in1') # (should not be used for this program)
+	truck_gyro = ev3.GyroSensor('in1') # (not used for this program)
 	trailer_gyro = ev3.GyroSensor('in2')
 	
 	# gyro initialization
@@ -32,23 +32,35 @@ def main():
 		trailer_angle = trailer_gyro.value() # read trailer angle
 		
 		# calculations
-		error = (trailer_angle) - target_angle
+		error = trailer_angle - target_angle
 		left_speed = base_speed - (error * Kp)
 		right_speed = base_speed + (error * Kp)
+		
+		# make sure speeds stay within motor's accepted range, so there isn't an error
+		if left_speed > 1050:
+			left_speed = 1050
+		elif left_speed < -1050:
+			left_speed = -1050
+		
+		if right_speed > 1050:
+			right_speed = 1050
+		elif right_speed < -1050:
+			right_speed = -1050
+		
 		
 		# set motor speeds
 		motorL.run_forever(speed_sp=left_speed)
 		motorR.run_forever(speed_sp=right_speed)
 		
 		# print debugging messages
-		if (count % 20) == 0: # limit console output frequency
+		if (count % 50) == 0: # limit console output frequency
 			print('COUNT: ' + str(count))
 			print('error: ' + str(error))
 			print('left speed: ' + str(left_speed))
 			print('right speed: ' + str(right_speed))
 		
 		
-		count += 1;
+		count += 1
 	# end while loop
 	
 	# stop motors at end of program

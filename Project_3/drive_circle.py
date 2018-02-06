@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 # parameters
-Kp = 10; # proportionality constant
-base_speed = 500
-target_angle = 20
+Kp = 15; # proportionality constant
+base_speed = 200
+target_angle = 10
 num_its = 1000 # number of iterations to run code (roughly, how long to run for)
 
 def main():
