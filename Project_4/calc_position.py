@@ -23,14 +23,22 @@ def main():
 	init_ang_e = elbow.position
 	init_ang_w = wrist.position
 	
+	prev_s = init_ang_s
+	prev_e = init_ang_e
+	prev_w = init_ang_w
+	
 	s_list = []
 	e_list = []
 	w_list = []
 	
 	for  x in range(1, 50):
-		s_list.append(shoulder.position - init_ang_s)
-		e_list.append(elbow.position - init_ang_e)
-		w_list.append(wrist.position - init_ang_w)
+		s_list.append(shoulder.position - prev_s)
+		e_list.append(elbow.position - prev_e)
+		w_list.append(wrist.position - prev_w)
+		
+		prev_s = shoulder.position
+		prev_e = elbow.position
+		prev_w = wrist.position
 		
 		theta = m.radians(shoulder.position - init_ang_s)
 		alpha = theta + m.radians(elbow.position - init_ang_e)
