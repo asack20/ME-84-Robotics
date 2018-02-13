@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import math as m
 from time import sleep
+
 # parameters
 length_1 = 6.25 # (inches) length between shoulder and elbow
 length_2 = 5.5 # (inches) length between elbow and wrist ??
@@ -43,6 +44,8 @@ def main():
 		sleep(sleep_time) 
 
 	# end for loop
+
+	print('end')
 
 if __name__ == '__main__':
 	main()

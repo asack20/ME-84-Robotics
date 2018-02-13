@@ -12,7 +12,7 @@ speed = 300 # speed to run motors at for playback
 # it is assumed that the arm is fully straightened out when the program is run
 
 def main():
-	print('Calculate End Effector Position')
+	print('Record and Playback Arm Movement')
 	
 	# create objects
 	ev3 = Device('this')
@@ -38,6 +38,8 @@ def main():
 	e_list = []
 	w_list = []
 	
+	print('START Moving Arm')
+
 	# recording loop
 	for  x in range(1, num_its): 
 		
@@ -60,11 +62,14 @@ def main():
 
 	# end for loop
 	
+	print('STOP Moving Arm and Reset it')
+
 	# code idles while user resets arm position
 	while !(button.is_pressed()):
 		# Wait until button is pressed
 	# end while
 
+	print('Motion Playback')
 
 	# playback loop
 	for x in range(0, len(s_list)): # go through angle lists
@@ -82,6 +87,8 @@ def main():
 		sleep(sleep_time)
 	
 	# end for loop
+
+	print('end')
 
 
 if __name__ == '__main__':
