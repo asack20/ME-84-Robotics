@@ -4,9 +4,9 @@ from time import sleep
 
 # parameters
 length_1 = 6.25 # (inches) length between shoulder and elbow
-length_2 = 5.5 # (inches) length between elbow and wrist ??
-sleep_time = 3 # seconds
-num_its = 5; # number of times to run through main loop
+length_2 = 5.375 # (inches) length between elbow and wrist ??
+sleep_time = 8 # seconds
+num_its = 3; # number of times to run through main loop
 
 # it is assumed that the arm is fully straightened out when the program is run
 

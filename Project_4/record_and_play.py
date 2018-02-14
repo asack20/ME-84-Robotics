@@ -3,7 +3,7 @@ import math as m
 from time import sleep
 # parameters
 length_1 = 6.25 # (inches) length between shoulder and elbow
-length_2 = 5.5 # (inches) length between elbow and wrist 
+length_2 = 5.375 # (inches) length between elbow and wrist 
 
 sleep_time = 0.1 # seconds between points collected and played
 num_its = 150 # number of data points to collect for arm position. num_its * sleep_time is the length of time data is collected for
@@ -19,14 +19,14 @@ def main():
 	shoulder = ev3.LargeMotor('outA')
 	elbow = ev3.LargeMotor('outB')
 	wrist = ev3.MediumMotor('outC')
-	#NEED CODE button = ev3.Button('in1')
+	button = ev3.TouchSensor('in1')
 	
 	# record
 
 	# record position at beginning of program for zeroing motor positions
-	init_ang_s = shoulder.position
-	init_ang_e = elbow.position
-	init_ang_w = wrist.position
+	init_s = shoulder.position
+	init_e = elbow.position
+	init_w = wrist.position
 	
 	# set previous angle values to initial at beginning
 	prev_s = init_s
@@ -57,7 +57,11 @@ def main():
 		prev_s = curr_s
 		prev_e = curr_e
 		prev_w = curr_w
-
+		
+		if (x % 10) == 0:
+			print(x)
+		# end if
+		
 		sleep(sleep_time)
 
 	# end for loop
@@ -65,8 +69,9 @@ def main():
 	print('STOP Moving Arm and Reset it')
 
 	# code idles while user resets arm position
-	while !(button.is_pressed()):
+	while button.is_pressed == False:
 		# Wait until button is pressed
+		sleep(0.25)
 	# end while
 
 	print('Motion Playback')
