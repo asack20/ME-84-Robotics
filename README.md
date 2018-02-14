@@ -10,3 +10,5 @@ Project 1: Find the Wall
 Project 2: Walker
 
 Project 3: Trailer Control
+
+Project 4: Robotic Arm
