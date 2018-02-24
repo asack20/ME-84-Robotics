@@ -10,7 +10,7 @@
 clear all;
 close all;
 
-saveName = 'square2.txt'; % name of coordinate file
+saveName = 'line.txt'; % name of coordinate file
 r = 12; % Total length of arm (L1+L2) 
 
 % Initial Locations
