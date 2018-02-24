@@ -11,4 +11,6 @@ Project 2: Walker
 
 Project 3: Trailer Control
 
-Project 4: Robotic Arm
+Project 4: Robotic Arm: Forward Kinematics
+
+Project 5: Robotic Arm: Inverse Kinematics
